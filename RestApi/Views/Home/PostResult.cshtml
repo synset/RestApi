@@ -1,0 +1,80 @@
+﻿@model RestApi.Models.Customer
+@{
+    ViewData["Title"] = "Post Result";
+}
+
+<div class="bakgrund container bg-light">
+    <div class="column">
+
+        <div class="row">
+            <a href="/Home/PostResult" class="postButton btn btn-block disabled">Post/api/customer/{Id}</a>
+        </div>
+
+        <div class="row" style="margin-bottom: 5px">
+            <span class="input-group-text bg-secondary" style="margin-right:20px; color: white;">Mediatype</span>
+
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Choose format
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">application/json</a>
+                    <a class="dropdown-item" href="#">text/json</a>
+                    <a class="dropdown-item" href="#">plain text</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-group">
+                <span class="input-group-text col-12">Request:</span>
+            </div>
+            <div class="input-group">
+                <textarea class="form-control" aria-label="requestTextArea"></textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-group">
+                <span class="input-group-text col-12">Result:</span>
+                <span class="input-group-text col-12">Code 201 - success</span>
+            </div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.FirstName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LastName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(model => model.FirstName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => model.LastName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => model.Email)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row">
+            <a href="/Home/PostRequest" class="newPostRequestButton btn">Make new Request</a>
+            <a href="Index" class="backToHomeButton btn btn-primary">Main menu</a>
+        </div>
+
+    </div>
+</div>

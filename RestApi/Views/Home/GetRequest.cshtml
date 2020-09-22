@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Get Request";
+}
+<div class="bakgrund container bg-light">
+    <div class="column">
+        <div class="row">
+            <a href="/Home/GetRequest" class="getButton btn btn-block disabled">Get/api/speaker</a> 
+        </div>
+
+        <div class="row" style="margin-bottom: 5px">
+            <span class="input-group-text bg-secondary" style="margin-right:20px; color: white;">Mediatype</span>
+
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Choose format
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">application/json</a>
+                    <a class="dropdown-item" href="#">text/json</a>
+                    <a class="dropdown-item" href="#">plain text</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-group">
+                <span class="input-group-text col-12">Request:</span>
+            </div>
+            <div class="input-group">
+                <textarea class="form-control" aria-label="requestTextArea"></textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <a href="/Home/GetResult" class="executeGetRequestButton btn btn-secondary">Execute Request</a>
+            <a href="Index" class="cancelButton btn btn-danger">Cancel</a>
+        </div>
+
+    </div>
+</div>

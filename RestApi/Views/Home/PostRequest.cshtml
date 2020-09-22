@@ -1,0 +1,117 @@
+﻿@model RestApi.Models.Customer
+
+@{
+    ViewData["Title"] = "Post Request";
+}
+
+<div class="bakgrund container bg-light">
+    <div class="column">
+        <div class="row">
+            <a href="Home/PostRequest" class="postButton btn btn-block disabled">Post/api/customer/{Id}</a>
+        </div>
+
+        <div class="row" style="margin-bottom: 5px">
+            <span class="input-group-text bg-secondary" style="margin-right:20px; color: white;">Mediatype</span>
+
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Choose format
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">application/json</a>
+                    <a class="dropdown-item" href="#">text/json</a>
+                    <a class="dropdown-item" href="#">plain text</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="input-group">
+                <span class="input-group-text col-12">Request:</span>
+            </div>
+            <div class="input-group">
+                <textarea class="form-control" aria-label="requestTextArea"></textarea>
+            </div>
+        </div>
+
+        <h4>Customer</h4>
+        <hr />
+
+        @using (Html.BeginForm("PostResult", "Home", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="row">
+                <div class="col-md-4">
+                    <form asp-action="PostResult">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="FirstName" class="control-label"></label>
+                            <input asp-for="FirstName" class="form-control" />
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="LastName" class="control-label"></label>
+                            <input asp-for="LastName" class="form-control" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Email" class="control-label"></label>
+                            <input asp-for="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Execute request" class="executePostRequestButton btn" />
+                            <a href="Index" class="cancelButton btn btn-danger">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+
+
+
+
+
+@*<div class="form-horizontal" action="PostResult" method="post">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName, "First Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, "Email", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" id="submit" value="Execute Request" class="executePostRequestButton btn" />
+        </div>
+    </div>*@
+
+@*<div class="row">
+        <a href="/Home/PostResult" class="executePostRequestButton btn">Execute Request</a>
+        <a href="Index" class="cancelButton btn btn-danger">Cancel</a>
+    </div>*@
